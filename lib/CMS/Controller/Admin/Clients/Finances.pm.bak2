@@ -1,0 +1,198 @@
+package CMS::Controller::Admin::Clients::Finances;
+use Moose;
+use namespace::autoclean;
+use CMS::Form::Admin::Finance;
+
+BEGIN {extends 'Catalyst::Controller'; }
+
+has 'finance_form' => (
+    isa => 'CMS::Form::Admin::Finance',
+    is => 'ro',
+    lazy => 1,
+    default => sub { CMS::Form::Admin::Finance->new },
+);
+
+
+
+=head1 NAME
+
+CMS::Controller::Admin::Clients::Finances - Catalyst Controller
+
+=head1 DESCRIPTION
+
+Catalyst Controller.
+
+=head1 METHODS
+
+=cut
+
+
+=head2 index
+
+=cut
+
+sub index :Path :Args(0) {
+    my ( $self, $c ) = @_;
+
+    $c->response->body('Matched CMS::Controller::Admin::Clients::Finances in Admin::Clients::Finances.');
+}
+
+sub finances :Chained('/admin/clients/load') :PathPart('finances') :Args(0) {
+    my ( $self, $c ) = @_;
+    my $client_id;
+    my $finances;
+
+    $client_id = $c->stash->{client_id};
+
+    $finances = [$c->model('CMSDB::Finance')->search( {
+        client_id   => $client_id,
+    } )];
+
+    $c->stash(
+        template        => 'admin/clients/finances.tt2',
+        client          => $c->stash->{client},
+        finances   => $finances,
+    );
+
+}
+
+sub finance_base :Chained('/admin/clients/load') :PathPart('finances') :CaptureArgs(0) {
+    my ( $self, $c ) = @_;
+
+}
+
+
+sub finance_load :Chained('finance_base') :PathPart('') :CaptureArgs(1) {
+    my ( $self, $c, $id ) = @_;
+    my $finance;
+
+    if($id) {
+
+        $c->stash->{finance_id} = $id;
+        $finance    = $c->model('CMSDB::Finance')->find($id);
+
+    } else {
+
+        $c->response->status(404);
+        $c->detach;
+
+    }
+
+    if ($finance) {
+
+        $c->stash->{'finance'} = $finance;
+
+    } else {
+
+        $c->response->status(404);
+        $c->detach;
+
+    }
+
+    return;
+}
+
+sub finance_create :Chained('/admin/clients/load') :PathPart('finance_create') :Args(0) {
+    my ( $self, $c, $finance_id ) = @_;
+    my $row;
+    my $form;
+    my $client_id;
+
+    $client_id = $c->stash->{client_id};
+
+    # Set template and form
+    $c->stash(
+        template    => 'admin/clients/finance.tt2',
+        form        => $self->finance_form,
+    );
+
+    $c->log->debug("stuff ". $c->stash->{client_id});
+
+    $c->req->parameters->{client_id} = $c->stash->{client_id};
+
+    return unless $self->finance_form->process(
+        item_id => $finance_id,
+        params      => $c->req->parameters,
+        schema      => $c->model('CMSDB')->schema
+    );
+
+    $c->res->redirect( $c->uri_for($self->action_for('finances'),
+            [$client_id])
+     );
+
+}
+
+sub finance_delete :Chained('finance_load') :PathPart('delete') :Args(0) {
+    my ( $self, $c ) = @_;
+    my $finance;
+    my $client_id;
+
+    $finance = $c->stash->{finance};
+    
+    $client_id = $c->stash->{client_id};
+
+    if ($finance) {
+
+        $finance->delete;
+
+        $c->res->redirect( $c->uri_for($self->action_for('finances'),
+            [$client_id])
+        );
+
+
+    } else {
+
+        $c->response->status(404);
+        $c->detach;
+
+    }
+
+    return;
+}
+
+
+sub finance_edit :Chained('finance_load') :PathPart('edit') :Args(0) {
+    my ( $self, $c ) = @_;
+    my $finance_id;
+    my $client_id;
+    my $row;
+    my $form;
+
+    $client_id = $c->stash->{client_id};
+    $finance_id = $c->stash->{finance_id};
+
+    $row = $c->model('CMSDB::Finance')->find($finance_id);
+
+    $c->stash(
+        template    => 'admin/clients/finance.tt2',
+        form        => $self->finance_form,
+    );
+
+    # Process form
+    $form = $self->finance_form->process (
+        item        => $row,
+        params      => $c->req->params,
+    );
+
+    if ($form) {
+        $c->res->redirect( $c->uri_for($self->action_for('finances'), 
+            [$client_id]) 
+        );
+    }
+}
+
+
+=head1 AUTHOR
+
+gbrnd
+
+=head1 LICENSE
+
+This library is free software. You can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=cut
+
+__PACKAGE__->meta->make_immutable;
+
+1;

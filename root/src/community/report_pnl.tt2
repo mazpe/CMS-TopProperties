@@ -1,0 +1,46 @@
+<strong>Profile and Lost - [% c.req.params.month %]/[% c.req.params.year %]</strong>
+<table id="rounded-corner" summary="Board Members">
+<thead>
+    <tr>
+        <th scope="col" class="rounded-q1">Account</td>
+        <th scope="col" class="rounded-q1">Description</td>
+        <th scope="col" class="rounded-q1">Amount</td>
+    </tr>
+</thead>
+<tbody>
+[% FOREACH finance IN finances %]
+    <tr>
+        <td>
+            [% IF finance.description.search('Total') %]
+                <strong>
+            [% END %]
+
+            [% finance.account %]
+            [% IF finance.description.search('Total') %]
+                </strong>
+            [% END %]
+        </td>
+        <td>
+            [% IF finance.description.search('Total') %]
+                <strong>
+            [% END %]
+            [% finance.description %]
+            [% IF finance.description.search('Total') %]
+                </strong>
+            [% END %]
+
+        </td>
+        <td align="right">
+            [% IF finance.description.search('Total') %]
+                <strong>
+            [% END %]
+                [% finance.amount %]
+            [% IF finance.description.search('Total') %]
+                <strong>
+            [% END %]
+
+        </td>
+[% END %]
+</tbody>
+</table>
+

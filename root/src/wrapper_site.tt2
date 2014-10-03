@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Top Service Property Management</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="text/css" rel="stylesheet" href="[% c.uri_for('/static/css/master.css') %]" />
+<link type="text/css" rel="stylesheet" href="[% c.uri_for('/static/css/jquery.fancybox-1.3.1.css') %]" />
+<link rel="stylesheet" type="text/css" href="[% c.uri_for('/static/css/tango/skin.css') %]" />
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script type="text/javascript" src="[% c.uri_for('/static/js/jquery.fancybox-1.3.1.pack.js') %]"></script>
+      <script type="text/javascript">      
+      $(document).ready(function() {
+      /* This is basic - uses default settings */
+    
+        $("a.single_image").fancybox({
+            'hideOnContentClick': true,
+            'showCloseButton': true
+        });
+    
+      });
+      </script>
+<script type="text/javascript" src="[% c.uri_for('/static/js/jquery.jcarousel.min.js') %]"></script>
+<script type="text/javascript">
+
+function mycarousel_initCallback(carousel)
+{
+    // Disable autoscrolling if the user clicks the prev or next button.
+    carousel.buttonNext.bind('click', function() {
+        carousel.startAuto(0);
+    });
+
+    carousel.buttonPrev.bind('click', function() {
+        carousel.startAuto(0);
+    });
+
+    // Pause autoscrolling if the user moves with the cursor over the clip.
+    carousel.clip.hover(function() {
+        carousel.stopAuto();
+    }, function() {
+        carousel.startAuto();
+    });
+};
+
+jQuery(document).ready(function() {
+    jQuery('#mycarousel').jcarousel({
+        auto: 10,
+        wrap: 'circular',
+        initCallback: mycarousel_initCallback
+    });
+});
+
+</script>
+
+</head>
+<body>
+
+<div id="page-container">
+<div id="main">
+
+  <div id="main-nav">
+    <div id="logo">
+    Top Service Property Management
+    </div><!-- logo -->
+    <div id="nav">
+
+    <div class="[% IF is_home %] block_selected [% ELSE %] block [% END %]">
+        <a href="/site">Home</a>
+    </div> 
+    <div class="[% IF is_about_us %] block_selected [% ELSE %] block [% END %]">
+        <a href="/site/about_us">About Us</a>
+    </div>
+    <div class="[% IF is_services %] block_selected [% ELSE %] block [% END %]">
+        <a href="/site/services">Services</a>
+    </div>
+    <div class="[% IF is_contact_us_ %] block_selected [% ELSE %] block [% END %]">
+        <a href="/site/contact_us">Contact Us</a>
+    </div>
+    </div><!-- nav -->
+  </div><!-- main-nav -->
+
+  <div id="header">
+[% IF is_home %]
+    <img src="[% c.uri_for('/static/images/header_home.jpg') %]" width="960" height="285" alt="Header Home"/>
+[% ELSIF is_about_us %]
+    <img src="[% c.uri_for('/static/images/header_about_us.jpg') %]" width="960" height="285" alt="Header Home"/>
+[% ELSIF is_services %]
+    <img src="[% c.uri_for('/static/images/header_services.jpg') %]" width="960" height="285" alt="Header Home"/>
+[% ELSIF is_contact_us %]
+    <img src="[% c.uri_for('/static/images/header_contact_us.jpg') %]" width="960" height="285" alt="Header Home"/>
+[% ELSIF is_finances %]
+    <img src="[% c.uri_for('/static/images/header_home.jpg') %]" width="960" height="285" alt="Header Home"/>
+[% ELSIF is_complaints %]
+    <img src="[% c.uri_for('/static/images/header_about_us.jpg') %]" width="960" height="285" alt="Header Home"/>
+[% ELSIF is_boardmembers %]
+    <img src="[% c.uri_for('/static/images/header_services.jpg') %]" width="960" height="285" alt="Header Home"/>
+[% ELSIF is_forms %]
+    <img src="[% c.uri_for('/static/images/header_contact_us.jpg') %]" width="960" height="285" alt="Header Home"/>
+
+[% END %]
+  </div>
+  <div id="functions">
+    <img src="[% c.uri_for('/static/images/functions.gif') %]" width="956" height="93" border="0" usemap="#Map" alt="Function" />
+    <map name="Map" id="Map">
+      <area shape="rect" coords="26,22,203,51" href="/community/finances" />
+      <area shape="rect" coords="257,26,441,50" href="/community/complaints" />
+      <area shape="rect" coords="498,18,680,59" href="/community/boardmembers" />
+      <area shape="rect" coords="743,21,928,57" href="/community/forms" />
+    </map>
+  </div>
+  <div id="middle">
+    <div id="content_1">
+      <div class="padding">
+      <p>
+      We are conveniently located at 5951 NW 151 Street, suite 207, Miami Lakes, Fl. 33014. Ph. 305-817-9012 305-817-9012 - Fax. 305-817-9081. E-mail address: tspm@att.net
+      </p>
+      <p>
+      Call us today, and we will provide you with a free Evaluation of your Property, a Customize Budget Plan and a detail action plan to make your property successful!!! .  
+      </p>
+      <p>
+      Our Management Team understands that in hard economic times it.s important to obtain the <strong>.TOP SERVICES.</strong> possible for your association at the best rates possible. 
+      </p>
+      </div>
+    </div>
+    <div id="content_2">
+
+    <div id="gallery">
+      <div style="padding-left:40px">
+        <ul id="mycarousel" class="jcarousel-skin-tango">
+        <li><a href="[% c.uri_for('/static/images/gallery_1.jpg') %]" class="single_image"><img src="[% c.uri_for('/static/images/gallery_1_thumb.jpg') %]" width="150" height="120" border="0" /></a></li>
+        <li><a href="[% c.uri_for('/static/images/gallery_2.jpg') %]" class="single_image"><img src="[% c.uri_for('/static/images/gallery_2_thumb.jpg') %]" width="150" height="120" border="0" /></a></li>
+        <li><a href="[% c.uri_for('/static/images/gallery_3.jpg') %]" class="single_image"><img src="[% c.uri_for('/static/images/gallery_3_thumb.jpg') %]" width="150" height="120" border="0" /></a></li>            
+        <li><a href="[% c.uri_for('/static/images/gallery_4.jpg') %]" class="single_image"><img src="[% c.uri_for('/static/images/gallery_4_thumb.jpg') %]" width="150" height="120" border="0" /></a></li>            
+        </ul>
+      </div>
+    </div><!-- gallery -->
+
+      <div class="padding">
+        [% content %]
+      </div>
+      
+    </div><!-- content_2 -->
+    
+  </div>
+  <div id="footer">
+    <div id="alt-menu">
+    [% IF c.user_exists %]
+    [% c.user.username %] -
+    [% END %]
+    [% IF c.user.type == "admin" %] 
+    <a href="/admin">admin</a> -
+    [% END %]
+    <a href="/login">login</a> - 
+    <a href="/logout">logout</a>
+    </div>
+    
+    Copyright &copy; Top Service Property Management
+  </div>
+</div>
+<div style="text-align:center">Web Site Design by <a href="http://www.gbrnd.com/" target="_blank">gbRND</a></div>
+</div>
+
+
+</body>
+</html>
+

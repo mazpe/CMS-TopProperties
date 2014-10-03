@@ -1,0 +1,116 @@
+#header {
+    text-align: center;
+}
+#header h1 {
+    margin: 0;
+}
+#header img {
+    float: right;
+}
+#footer {
+    text-align: center;
+    font-style: italic;
+    padding-top: 20px;
+    clear: both;
+}
+#menu {
+    font-weight: bold;
+    background-color: #ddd;
+}
+#menu ul {
+    list-style: none;
+    float: left;
+    margin: 0;
+    padding: 0 0 50% 5px;
+    font-weight: normal;
+    background-color: #ddd;
+    width: 100px;
+}
+#content {
+    margin-left: 120px;
+}
+.message {
+    color: #390;
+}
+.error {
+    color: #f00;
+}
+#mainTabs {
+  /* margin:0 auto; */
+  width:700px;
+}
+#mainTabs li { list-style:none; float:left;}
+#mainTabs a {
+  display:block;
+  padding:4px 0;
+  height:24px;
+  width:140px;
+  text-decoration:none!important;
+  margin:0px;
+  margin-left:0;
+  font:12pt Calibri;
+  color:#FFF;
+  background:#222;
+}
+#mainTabs a:hover {
+  height:28px;
+  padding:4px 0 6px;
+  background:#0D0D0D;
+  border-bottom:1px solid #181818;
+}
+#mainTabs a.selected {
+  height:30px;
+  padding:4px 0 8px;
+  background:snow;
+  color:#222;
+  font-weight:bold;
+  border-bottom:none;
+}
+
+
+
+#rounded-corner
+{
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 12px;
+    margin: 45px;
+    width: 480px;
+    text-align: left;
+    border-collapse: collapse;
+}
+#rounded-corner thead th.rounded-company
+{
+    background: #b9c9fe url('/static/images/left.png') left -1px no-repeat;
+}
+#rounded-corner thead th.rounded-q4
+{
+    background: #b9c9fe url('/static/images/right.png') right -1px no-repeat;
+}
+#rounded-corner th
+{
+    padding: 8px;
+    font-weight: normal;
+    font-size: 13px;
+    color: #039;
+    background: #b9c9fe;
+}
+#rounded-corner td
+{
+    padding: 8px;
+    background: #e8edff;
+    border-top: 1px solid #fff;
+    color: #669;
+}
+#rounded-corner tfoot td.rounded-foot-left
+{
+    background: #e8edff url('/static/images/botleft.png') left bottom no-repeat;
+}
+#rounded-corner tfoot td.rounded-foot-right
+{
+    background: #e8edff url('/static/images/botright.png') right bottom no-repeat;
+}
+#rounded-corner tbody tr:hover td
+{
+    background: #d0dafd;
+}
+

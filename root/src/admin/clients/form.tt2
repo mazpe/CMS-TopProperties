@@ -1,0 +1,13 @@
+<b>Community:</b> [% client.name %]<br />
+<b>Contact:</b> [% client.contact %]<br />
+<b>Address 1:</b> [% client.address_1 %]<br />
+<b>Address 2:</b> [% client.address_2 %]<br />
+<b>City:</b> [% client.city %]<br />
+<b>Phone:</b> [% client.telephone %] <br />
+<b>Email:</b> [% client.email %]<br />
+[ <a href="[% c.uri_for(c.controller('Admin::Clients').action_for('edit'), [client.id] ) %]">Back to Community</a> ]
+
+<br />
+<br />
+
+[% form.render %]

@@ -1,0 +1,24 @@
+<table id="rounded-corner" summary="Board Members">
+  <thead>
+    <tr>
+      <th scope="col" class="rounded-company">Board Member(s)</th>
+      <th scope="col" class="rounded-q1">Position</th>
+      <th scope="col" class="rounded-q2">Email</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <td colspan="2" class="rounded-foot-left"><em>...</em></td>
+      <td class="rounded-foot-right">&nbsp;</td>
+    </tr>
+  </tfoot>
+  <tbody>
+[% FOREACH boardmember IN boardmembers -%]
+    <tr>
+      <td>[% boardmember.name %]</td>
+      <td>[% boardmember.position %]</td>
+      <td>[% boardmember.email %]</td>
+    </tr>
+[% END -%]
+  </tbody>
+</table>

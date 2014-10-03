@@ -1,0 +1,22 @@
+<table id="rounded-corner" summary="Board Members">
+  <thead>
+    <tr>
+      <th scope="col" class="rounded-company">Form(s)</th>
+      <th scope="col" class="rounded-q1">View</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <td class="rounded-foot-left"><em>...</em></td>
+      <td class="rounded-foot-right">&nbsp;</td>
+    </tr>
+  </tfoot>
+  <tbody>
+[% FOREACH form IN forms -%]
+    <tr>
+      <td>[% form.name %]</td>
+      <td><a href="/forms/[% form.filename %]" target="_new">view</a></td>
+    </tr>
+[% END -%]
+  </tbody>
+</table>

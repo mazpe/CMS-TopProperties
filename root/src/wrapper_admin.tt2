@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>[% template.title or "Top Service Property Management" %]</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script type="text/javascript" src="[% c.uri_for('/static/js/jquery.idTabs.min.js') %]"></script>
+<script type="text/javascript">
+  function confirmDelete(anchor)
+  {
+    if (confirm('Are you sure?'))
+    {
+        document.location.href = anchor;
+        return true;
+    }
+    return false;
+  }
+</script>
+<link rel="stylesheet" href="[% c.uri_for('/static/css/main.css') %]" />
+
+</head>
+
+<body>
+<div id="outer">
+<div id="header">
+    [%# Your logo could go here -%]
+    <img src="[% c.uri_for('/static/images/btn_88x31_powered.png') %]" />
+    [%# Insert the page title -%]
+    <h1>[% template.title or site.title %]</h1>
+</div>
+
+<div id="bodyblock">
+<div id="menu">
+    <ul>
+        <li><a href="[% c.uri_for('/admin') %]">Home</a></li>
+        <li><a href="[% c.uri_for('/admin/clients') %]">Communities</a></li>
+        <li><a href="[% c.uri_for('/logout') %]">Logout</a></li>
+    </ul>
+</div><!-- end menu -->
+
+<div id="content">
+    [%# Status and error messages %]
+    <span class="message">[% status_msg %]</span>
+    <span class="error">[% error_msg %]</span>
+    [%# This is where TT will stick all of your template's contents. -%]
+    [% content %]
+    <br>
+
+</div><!-- end content -->
+</div><!-- end bodyblock -->
+
+<div id="footer">Copyright (c) Top Service Property Management</div>
+</div><!-- end outer -->
+
+</body>
+</html>

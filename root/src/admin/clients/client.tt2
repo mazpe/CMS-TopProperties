@@ -1,0 +1,54 @@
+[COMMUNITY]
+[% form.render %]
+
+[% IF is_edit %]
+
+
+<input type="button" value="Delete" onclick="location.href='[% c.uri_for(c.controller.action_for('delete'), [client.id]) %]' ">
+
+      <input type="button" name="delete" value="Delete"
+      onclick="return confirmDelete('[% c.uri_for(
+        c.controller.action_for('delete'), [client.id]) %]');"
+      />
+
+
+<ul id="mainTabs">
+    <li>
+    <a href="[% c.uri_for(
+        c.controller('Admin::Clients::Finances').action_for('finances'), [client.id]
+    ) %]">
+        Finance 
+    </a>
+    </li>
+    <li>
+    <a href="[% c.uri_for(
+        c.controller('Admin::Clients::BoardMembers').action_for('boardmembers'), [client.id]
+    ) %]">
+        Board Members 
+    </a>
+    </li>
+    <li>
+    <a href="[% c.uri_for(
+        c.controller('Admin::Clients::Complaints').action_for('complaints'), [client.id]
+    ) %]">
+        Complaints 
+    </a>
+    </li>
+    <li>
+    <a href="[% c.uri_for(
+        c.controller('Admin::Clients::Forms').action_for('forms'), [client.id]
+    ) %]">
+        Forms 
+    </a>
+    </li>
+    <li>
+    <a href="[% c.uri_for(
+        c.controller('Admin::Clients::Accounts').action_for('accounts'), [client.id]
+    ) %]">
+        Accounts
+    </a>
+    </li>
+
+</ul>
+
+[% END %]

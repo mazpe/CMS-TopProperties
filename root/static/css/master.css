@@ -1,0 +1,244 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, Verdana, Sans-serif;
+    font-size:12px;
+    color: #666666;
+    background-color:#FFF;
+}
+
+.hidden {
+    display: none;  
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
+#page-container {
+    width: 1040px;
+    margin: auto;
+    background-color: #E5E5E5;
+}
+
+#main {
+    width: 960px;
+    margin: auto;
+}
+
+/* Main Navigation */
+#main-nav { 
+    position: relative;
+    height: 50px;
+    background-image:url(../images/menu-background.gif);
+}
+#nav {
+    float: right;
+}
+#nav .block_selected {
+    float: left;
+    font-family: Bell Gothic Std;
+    font-size:25px;
+    color:#FFF;
+    padding: 5px;
+    margin-left: 25px;
+    background-color: #93B9CC;
+}
+
+#nav .block {
+    float: left;
+    font-family: Bell Gothic Std;
+    font-size:25px;
+    color: #000;
+    padding: 5px;
+    margin-left: 25px;
+    background-color:#FFF;
+}
+#nav a {
+    color: #000;    
+    text-decoration: none;
+}
+#nav a:hover {
+    color: #db6d16;
+}
+#logo {
+    position:absolute;
+    top: 0;
+    left: 0;
+    font-family:Georgia, "Times New Roman", Times, serif;
+    font-size:22px;
+    font-weight:bold;
+}
+
+#header {
+    height: 285px;
+    background-color: #E5E5E5;
+    text-align:center;
+}
+
+#functions {
+    height: 100px;
+    background-color: #FFF;
+    text-align:center;
+}
+
+#content_1 {
+    float: left;
+    width: 350px;
+    background-color: #93B9CC;
+}
+#content_1 .padding {
+    padding: 25px;
+}
+
+#content_2 {
+    margin-left: 350px;
+    padding-top:110px;
+    background-color:#E0E0E0;
+}
+#content_2 .padding {
+    padding: 25px;
+}
+#content_2 h2 {
+    margin: 0;
+    padding: 0;
+    padding-bottom: 15px;
+}
+#middle {
+    position: relative;
+}
+
+#gallery {
+    position:absolute;
+    width: 610px;
+    height: 120px;
+    top: 5px;
+    right: 0px;
+    text-align:center;
+}
+
+#footer {
+    clear: both;
+    height: 25px;
+    font-family: Tahoma, Arial, Helvetica, Sans-serif;
+    font-size: 10px;
+    color: #000;
+    border-top: 1px solid #efefef;
+    padding: 13px 25px;
+    line-height: 18px;
+    background-color: #E9E9E9;
+}
+#footer a {
+    color: #333;    
+    text-decoration: none;
+}
+#footer a:hover {
+    color: #db6d16;
+}
+#footer #alt-menu {
+    width: 350px;
+    float: right;
+    text-align: right;
+}
+
+    /* image replacement */
+        .graphic, #prevBtn, #nextBtn{
+            margin:0;
+            padding:0;
+            display:block;
+            overflow:hidden;
+            text-indent:-8000px;
+            }
+    /* // image replacement */
+
+
+#slider{}   
+#slider ul, #slider li{
+    margin:0;
+    padding:0;
+    list-style:none;
+    }
+#slider li{ 
+    width:610px;
+    height:241px;
+    overflow:hidden; 
+    }   
+#prevBtn, #nextBtn{ 
+    display:block;
+    width:30px;
+    height:77px;
+    position:absolute;
+    left:2px;
+    top:43px;
+    }   
+#nextBtn{ 
+    left:580px;
+    }                                                       
+#prevBtn a, #nextBtn a{  
+    display:block;
+    width:30px;
+    height:77px;
+    background:url(../images/btn_prev.gif) no-repeat 0 0;   
+    }   
+#nextBtn a{ 
+    background:url(../images/btn_next.gif) no-repeat 0 0;   
+    }
+
+
+#rounded-corner
+{
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 12px;
+    margin: 45px;
+    width: 500px;
+    text-align: left;
+    border-collapse: collapse;
+}
+#rounded-corner thead th.rounded-company
+{
+    background: #b9c9fe url('/static/images/left.png') left -1px no-repeat;
+}
+#rounded-corner thead th.rounded-q4
+{
+    background: #b9c9fe url('/static/images/right.png') right -1px no-repeat;
+}
+#rounded-corner th
+{
+    padding: 8px;
+    font-weight: normal;
+    font-size: 13px;
+    color: #039;
+    background: #b9c9fe;
+}
+#rounded-corner td
+{
+    padding: 8px;
+    background: #e8edff;
+    border-top: 1px solid #fff;
+    color: #669;
+}
+#rounded-corner tfoot td.rounded-foot-left
+{
+    background: #e8edff url('/static/images/botleft.png') left bottom no-repeat;
+}
+#rounded-corner tfoot td.rounded-foot-right
+{
+    background: #e8edff url('/static/images/botright.png') right bottom no-repeat;
+}
+#rounded-corner tbody tr:hover td
+{
+    background: #d0dafd;
+}
+
+#rounded-corner td.table-header {
+    padding: 4px;
+    font-weight: normal;
+    font-size: 13px;
+    color: #039;
+    background: #b9c9fe;
+
+}

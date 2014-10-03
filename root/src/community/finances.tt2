@@ -1,0 +1,23 @@
+<table id="rounded-corner" summary="Finances">
+<thead>
+<tr>
+    <th scope="col" class="rounded-company"><b>Year</b></td>
+    <th scope="col" class="rounded-q1"><b>Month</b></td>
+    <th scope="col" class="rounded-q1"><b>PNL</b></td>
+</tr>
+</thead>
+<tbody>
+[% FOREACH report IN report_pnl -%]
+<tr>
+    <td>[% report.month %]</td>
+    <td>[% report.year %]</td>
+    <td><form action=" [% c.uri_for(c.controller.action_for('report_pnl')) %]">
+    <input type="hidden" name="month" value="[% report.month %]">
+    <input type="hidden" name="year" value="[% report.year %]">
+    <input type="submit" name="PNL" value="PNL">
+    </form>
+    </td>
+</tr>
+[% END -%]
+</tbody>
+</table>

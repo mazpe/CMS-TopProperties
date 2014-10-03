@@ -1,0 +1,41 @@
+<b>Community:</b> [% client.name %]<br />
+<b>Contact:</b> [% client.contact %]<br />
+<b>Address 1:</b> [% client.address_1 %]<br />
+<b>Address 2:</b> [% client.address_2 %]<br />
+<b>City:</b> [% client.city %]<br />
+<b>Phone:</b> [% client.telephone %] <br />
+<b>Email:</b> [% client.email %]<br />
+[ <a href="[% c.uri_for(c.controller('Admin::Clients').action_for('edit'), [client.id] ) %]">Back to Community</a> ]
+
+<br />
+<br />
+
+[ <a href="[% c.uri_for(c.controller.action_for('account_create'), [client.id]) %]">Add Accounts</a> ]
+<table>
+<tr>
+    <td><b>Username</b></td>
+    <td><b>Created</b></td>
+    <td><b>Updated</b></td>
+    <td><b>Edit</b></td>
+    <td><b>Delete</b></td>
+</tr>
+[% FOREACH account IN accounts -%]
+<tr>
+    <td>[% account.username %]</td>
+    <td>[% account.created %]</td>
+    <td>[% account.updated %]</td>
+    <td><a href="[% c.uri_for(
+        c.controller.action_for('account_edit'), [account.client_id.id,account.id]
+    ) %]">
+    edit
+    </a>
+    </td>
+    <td><a href="[% c.uri_for(
+        c.controller.action_for('account_delete'), [account.client_id.id,account.id]
+    ) %]">
+    delete
+    </a>
+    </td>
+</tr>
+[% END -%]
+</table>

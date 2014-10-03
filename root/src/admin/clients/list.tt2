@@ -1,0 +1,22 @@
+[ <a href="[% c.uri_for(c.controller.action_for('create')) %]">Add Community</a> ]
+<table>
+<tr>
+    <td><b>Community</b></td>
+    <td><b>Contact</b></td>
+    <td><b>Phone Number</b></td>
+    <td>&nbsp;</td>
+</tr>
+[% FOREACH client IN clients -%]
+<tr>
+    <td>[% client.name %]</td>
+    <td>[% client.contact %]</td>
+    <td>[% client.telephone %]</td>
+    <td><a href="[% c.uri_for(
+        c.controller.action_for('edit'), [client.id]
+    ) %]">
+    Select 
+    </a>
+    </td>
+</tr>
+[% END -%]
+</table>

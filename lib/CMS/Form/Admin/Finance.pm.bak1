@@ -1,0 +1,41 @@
+package CMS::Form::Admin::Finance;
+use HTML::FormHandler::Moose;
+use HTML::FormHandler::Types ( 'NoSpaces', 'WordChars' );
+extends 'HTML::FormHandler::Model::DBIC';
+use Data::Dumper;
+
+with 'HTML::FormHandler::Render::Simple'; # if you want to render the form
+
+has '+item_class' => ( default => 'Finance' );
+
+has_field 'month'  => (
+    type                => 'Text',
+    label               => 'Month',
+);
+has_field 'year'  => (
+    type                => 'Text',
+    label               => 'Year',
+);
+has_field 'income'  => (
+    type                => 'Text',
+    label               => 'Income',
+);
+has_field 'expense'  => (
+    type                => 'Text',
+    label               => 'Expense',
+);
+has_field 'units'  => (
+    type                => 'Text',
+    label               => 'Units',
+);
+
+has_field 'client_id'      => (
+    type                => 'Hidden',
+);
+
+
+has_field 'submit' => ( type => 'Submit', value => 'Submit' );
+
+no HTML::FormHandler::Moose;
+1;
+
